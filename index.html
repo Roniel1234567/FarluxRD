@@ -3,42 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>FarluxRD - Empresa Farmacéutica | Productos y Servicios</title>
+    <meta name="description" content="FarluxRD es una empresa farmacéutica comprometida con la calidad y el servicio. Ofrecemos productos farmacéuticos y servicios de salud.">
+    <meta name="keywords" content="farmacéutica, medicamentos, salud, FarluxRD, República Dominicana, farmacia">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a Mi Página Web</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#acerca">Acerca de</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <span>FARLUX S.R.L.</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#productos" class="nav-link">Productos <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#materiales" class="dropdown-item">Materiales Gastables</a></li>
+                        <li><a href="#medicamentos" class="dropdown-item">Medicamentos</a></li>
+                        <li><a href="#soluciones" class="dropdown-item">Soluciones</a></li>
+                        <li><a href="#laboratorios" class="dropdown-item">Laboratorios</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#acerca" class="nav-link">Sobre Nuestra Compañía</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="inicio">
-            <h2>Inicio</h2>
-            <p>Esta es una página web simple creada con HTML, CSS y JavaScript.</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-bg-img"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>BIENVENIDOS A NUESTRA EMPRESA</h1>
+            <p>FarluxRD se dedica a la importación, distribución y venta al por mayor de materiales gastables, medicamentos genéricos y éticos en todo el nivel nacional. Llegando a Hospitales, clínicas, farmacias y veterinarias.</p>
+            <div class="hero-buttons">
+                <a href="#productos" class="btn btn-primary">Ver Nuestros Productos</a>
+                <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+            </div>
+        </div>
+    </section>
 
-        <section id="acerca">
-            <h2>Acerca de</h2>
-            <p>Aquí puedes escribir información sobre ti o tu proyecto.</p>
-        </section>
+    <!-- Productos Section -->
+    <section class="section" id="productos">
+        <div class="section-header">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <p class="section-subtitle">Ofrecemos el mejor precio del mercado con la más amplia gama de productos farmacéuticos y materiales médicos.</p>
+        </div>
+        
+        <div class="products-catalog">
+            <div class="product-category fade-in">
+                <h3 class="category-title">
+                    <i class="fas fa-pills"></i>
+                    Materiales Gastables
+                </h3>
+                <p class="category-description">Alcoholes, Algodones, Jeringuillas, Vendajes Elásticos, Esparadrapos, Gasas, Cateters, Termómetros, Pampers, Sondas, Guantes y más.</p>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-pills"></i>
+                            <span>Materiales Gastables</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Materiales Gastables</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-tools"></i>
+                            <span>Equipos Médicos</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Equipos Médicos</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-hospital"></i>
+                            <span>Insumos Hospitalarios</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Insumos Hospitalarios</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Información de contacto aquí.</p>
-        </section>
-    </main>
+            <div class="product-category fade-in">
+                <h3 class="category-title">
+                    <i class="fas fa-flask"></i>
+                    Medicamentos Genéricos
+                </h3>
+                <p class="category-description">Tabletas, supositorios, óvulos, tópicos e inyectables de la más alta calidad.</p>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-capsules"></i>
+                            <span>Medicamentos Genéricos</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Medicamentos Genéricos</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-prescription-bottle"></i>
+                            <span>Farmacia</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Farmacia</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-pills"></i>
+                            <span>Medicamentos</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Medicamentos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <footer>
-        <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+            <div class="product-category fade-in">
+                <h3 class="category-title">
+                    <i class="fas fa-tint"></i>
+                    Soluciones
+                </h3>
+                <p class="category-description">Soluciones médicas de alta calidad para diferentes aplicaciones terapéuticas.</p>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-tint"></i>
+                            <span>Soluciones Médicas</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Soluciones Médicas</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-droplet"></i>
+                            <span>Soluciones Terapéuticas</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Soluciones Terapéuticas</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-flask"></i>
+                            <span>Soluciones</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Soluciones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-category fade-in">
+                <h3 class="category-title">
+                    <i class="fas fa-microscope"></i>
+                    Laboratorios Reconocidos
+                </h3>
+                <p class="category-description">Medicamentos de los más reconocidos laboratorios del mercado farmacéutico.</p>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-microscope"></i>
+                            <span>Laboratorios</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Laboratorios</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-certificate"></i>
+                            <span>Medicamentos Éticos</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Medicamentos Éticos</span>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-award"></i>
+                            <span>Productos de Calidad</span>
+                        </div>
+                        <div class="product-overlay">
+                            <span>Productos de Calidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-more-container">
+                <button class="btn btn-primary view-more-btn" id="viewMoreBtn">
+                    <i class="fas fa-eye"></i>
+                    Ver Más Productos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo Completo Modal -->
+    <div class="catalog-modal" id="catalogModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Catálogo Completo de Productos</h2>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="full-catalog-grid" id="instagramCatalog">
+                    <!-- Las imágenes de Instagram se cargarán aquí automáticamente -->
+                    <div class="loading-placeholder">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Cargando catálogo de Instagram...</p>
+                        <button id="testLoadBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #2c5aa0; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">
+                            🔄 Cargar Imágenes Manualmente
+                        </button>
+                        <button id="testImageBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">
+                            🧪 Probar Carga de Imágenes
+                        </button>
+                        <button id="alternativeProxyBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #ff6b35; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">
+                            🌐 Probar Proxy Alternativo
+                        </button>
+                        <button id="testAllProxiesBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #9c27b0; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            🧪 Probar Todos los Proxies
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acerca de Section -->
+    <section class="section about-section" id="acerca">
+        <div class="section-header">
+            <h2 class="section-title">Sobre Nuestra Compañía</h2>
+            <p class="section-subtitle">Conoce más sobre FarluxRD y nuestro compromiso con la excelencia en la industria farmacéutica.</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text fade-in-left">
+                <h2>Nuestra Misión</h2>
+                <p>En FarluxRD, nuestra misión es proporcionar productos farmacéuticos de la más alta calidad, contribuyendo al bienestar y la salud de la población dominicana.</p>
+                
+                <p>Nos esforzamos por mantener los más altos estándares de calidad en todos nuestros productos y servicios, asegurando que cada medicamento que distribuimos cumpla con las regulaciones farmacéuticas vigentes.</p>
+                
+                <p>Estamos comprometidos con la innovación continua y el desarrollo de soluciones farmacéuticas que mejoren la calidad de vida de nuestros clientes.</p>
+            </div>
+            
+            <div class="about-image fade-in-right">
+                <div class="about-img-placeholder">
+                    <i class="fas fa-building"></i>
+                    <span>FarluxRD - Empresa Farmacéutica</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas Section -->
+    <section class="section stats-section">
+        <div class="section-header">
+            <h2 class="section-title">FarluxRD en Números</h2>
+            <p class="section-subtitle">Nuestro compromiso con la excelencia se refleja en nuestros resultados</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="stat-number">+1000</h3>
+                <p class="stat-label">Clientes satisfechos</p>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 class="stat-number">RD</h3>
+                <p class="stat-label">República Dominicana</p>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3 class="stat-number">50+</h3>
+                <p class="stat-label">Productos disponibles</p>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="stat-number">100%</h3>
+                <p class="stat-label">Calidad garantizada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="section" id="contacto">
+        <div class="section-header">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">Estamos aquí para atenderte. Ponte en contacto con nuestro equipo.</p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="contact-info fade-in-left">
+                <h2>Información de Contacto</h2>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Dirección:</strong>
+                        <p>República Dominicana</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Teléfono:</strong>
+                        <p>+1 (809) XXX-XXXX</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email:</strong>
+                        <p>info@farluxrd.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Horario:</strong>
+                        <p>Lunes - Viernes: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <h3>Síguenos en Redes Sociales</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/farluxrd" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-map fade-in-right">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.1234567890123!2d-69.9312!3d18.4861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzEwLjAiTiA2OcKwNTUnNTIuMyJX!5e0!3m2!1ses!2sdo!4v1234567890123" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="footer-logo-placeholder">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>FARLUX S.R.L.</h3>
+                </div>
+                <p>Empresa farmacéutica comprometida con la calidad y el bienestar de nuestros clientes. Ofrecemos productos farmacéuticos de la más alta calidad.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#productos">Productos</a></p>
+                <p><a href="#acerca">Sobre Nuestra Compañía</a></p>
+                <p><a href="#contacto">Contacto</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Productos</h3>
+                <p><a href="#materiales">Materiales Gastables</a></p>
+                <p><p><a href="#medicamentos">Medicamentos</a></p>
+                <p><a href="#soluciones">Soluciones</a></p>
+                <p><a href="#laboratorios">Laboratorios</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>República Dominicana</p>
+                <p>+1 (809) XXX-XXXX</p>
+                <p>info@farluxrd.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 FARLUX S.R.L. Todos los derechos reservados. | GRACIAS POR ACCEDER A NUESTRO SITIO WEB</p>
+        </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
