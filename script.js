@@ -15,37 +15,8 @@ function initializeWebsite() {
     initializeParticleSystem();
     initializeCatalogModal();
     initializeFireworks();
+    initializeHeroAnimations();
 }
-
-// ===== ARRAY DE IMÁGENES DE INSTAGRAM (CON PROXY CORS) =====
-const instagramImages = [
-    // Usando proxy CORS para evitar bloqueos
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-19/487913847_2354716918239754_8213611813572826882_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMxIn0&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=EQS5W814hk4Q7kNvwESBAn8&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=GHf5FB0KUnVBml0IAALX9UZtnPxxbkULAAAB3203200j-ccb7-5&oh=00_AfUbhZswEAmQtXC4dZuDV6s_0eyLa02Ac9fhMIhMXVdCbw&oe=68A721B8&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/504148672_1221213486183119_4708917430801955435_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=rOgCmCHyfU8Q7kNvwHf4reG&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfWOl_Sk46cDUp8a9rVE8aleFtvZSU7TEZiyfzn4GeR0BQ&oe=68A720E9&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/488059817_17878283925280089_3029518742963970805_n.jpg?stp=dst-jpg_e15_s640x640_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=VcTYQVOfdjMQ7kNvwGr1JS1&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfU145emheSo1w9KZ6cekZbSlT6dgqFGrd-qfZATLwQ0LQ&oe=68A71D72&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/520179314_17890922556280089_6142135614363636132_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=VnjdhqHmOvMQ7kNvwHniI6n&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfWUOIs0yU_ISNXERhyakj-aQ8ggbqldav9ubKIFIrpYXA&oe=68A73398&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/520725667_17890806546280089_7676014621175102875_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=ThtU4YCrjTgQ7kNvwHm2LpR&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfXtisrakMkwFI9Ck0Yyz2rDImjL78Ruqzon2Yt9kwq6VQ&oe=68A73B23&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/519426843_17890684887280089_2378861190387751068_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=V3kr9Ul3bUoQ7kNvwFZLfZf&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfUozyOQNY_wlLU6AtSKKDATQiQhGHK6EVByKk5rGFzC3g&oe=68A722E4&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/517930235_17890061478280089_653721639344047225_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=O_-7WX4S_eEQ7kNvwEKM1UY&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfXJ2q_h9GsJpAK-Gz-NpUOdrXqpAuR6_gHJX_E5Na1VwQ&oe=68A744A1&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/517412993_17889824610280089_7751953980532445299_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=lCo1U-3fwu0Q7kNvwF9AgDK&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfVKmdGvkcMPHJiXhtkeBUiWnNwdDmsTBVYSJmdcZ0FGAw&oe=68A72198&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/514498400_17889122319280089_3629998005607119365_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=ipAqU1dqFd8Q7kNvwF3K0WP&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfX3zQlpz_tfsa4CeuA9hXVH45qV8z5IXywe_yyEuGyS2A&oe=68A7368D&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/515311672_17889007272280089_8140202801610255587_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=5wz44Q7j1sQQ7kNvwFC4XJk&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfXv-SElRbxml2xjsD8sMS48jpqkW_ILqc0YjSPQGR6cAQ&oe=68A7429A&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/509644612_17888884467280089_4402215633070596092_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=xo2md94PcN4Q7kNvwFQVfQT&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfUqw2aB1SkPQauWC-jYrKsMI3cQG-nqOx973XjUJ-NEbQ&oe=68A71C53&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/504381917_17888432985280089_9065985465492509422_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=skNVlF7kOj8Q7kNvwEA8aFM&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfVXWAoQj6lTiW2YK-H39RMox0ce9tctgC2fmSaQKKiiXw&oe=68A71393&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/503581528_17888044134280089_3000237619083517778_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=0GNRTeRp2cgQ7kNvwHhGxVK&_nc_gid=6fZ3LeZSnB3OoKlhLXAzAA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfW0UfTuiZtQeWUv5Ug6rWr9bPLCMxZrNOH3CMUiIOG84A&oe=68A73933&_nc_sid=8b3546',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/509257708_17887482285280089_4162208528466578347_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QHt3zfy77vHJwDWrAIeik7sdGLDwd1qxK9VF-Arh5LbxkfrQsG3YjA9ZXuOvcgHD5SBgY4Vp7JRJ2UwCCOWV9NT&_nc_ohc=73ujwf5Bv0kQ7kNvwEBtiK6&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfX-3ApWoATwNMf43A2ADhus03SXvu8R31THKtM1CSwOGg&oe=68A72DA8&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/508670597_17887340577280089_298518990658615089_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QHt3zfy77vHJwDWrAIeik7sdGLDwd1qxK9VF-Arh5LbxkfrQsG3YjA9ZXuOvcgHD5SBgY4Vp7JRJ2UwCCOWV9NT&_nc_ohc=crYffX2ubkQQ7kNvwEjyksE&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfUglrBH0a89-a4-Pz7oV2sYOLReZ0HuzOp0P9XrtLKPHg&oe=68A714C3&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/504828799_17886492309280089_6814449547340213033_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QHt3zfy77vHJwDWrAIeik7sdGLDwd1qxK9VF-Arh5LbxkfrQsG3YjA9ZXuOvcgHD5SBgY4Vp7JRJ2UwCCOWV9NT&_nc_ohc=qEUVHieH3G8Q7kNvwHLx8CB&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfW0BIYW0l706wZBOAg5q0mHNigkcE-msc3LdGiVDAooIQ&oe=68A7115B&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/505181343_17886387303280089_8930825964695941059_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QHt3zfy77vHJwDWrAIeik7sdGLDwd1qxK9VF-Arh5LbxkfrQsG3YjA9ZXuOvcgHD5SBgY4Vp7JRJ2UwCCOWV9NT&_nc_ohc=N8N7WrMRg0gQ7kNvwH9_qId&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfUSqvqoDI4hAgTn3HdCdKm9TDxiiAwAtmK8DP9xTbZrig&oe=68A745B8&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/504025804_17885725941280089_1768751757953018171_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QHt3zfy77vHJwDWrAIeik7sdGLDwd1qxK9VF-Arh5LbxkfrQsG3YjA9ZXuOvcgHD5SBgY4Vp7JRJ2UwCCOWV9NT&_nc_ohc=TgSms58Pr_QQ7kNvwHABODX&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfUhLP47hw9AecQW3OhAhkoXnyw-V-RGjd6QMM23x9U2FQ&oe=68A735E0&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/503666493_17885602902280089_9055265280234065810_n.jpg?stp=dst-jpg_e35_s1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QHt3zfy77vHJwDWrAIeik7sdGLDwd1qxK9VF-Arh5LbxkfrQsG3YjA9ZXuOvcgHD5SBgY4Vp7JRJ2UwCCOWV9NT&_nc_ohc=TxJvbsfd2dQQ7kNvwErCgud&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfW8UtG-nYjtZ56REAuzp8HVEPlpf4DHhpQgBHmpFFhA4Q&oe=68A718F9&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/503313322_17885467002280089_1089196267295089252_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=cq9otW-gMaQQ7kNvwEQPcQo&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfUzgsJM_Oi56h2FQTddOP_gNowWY0VehyTzdbp6F5FzDQ&oe=68A72110&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/502708365_17885122761280089_1992351179631873569_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=kiE1yAE1xNEQ7kNvwEIsdEd&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfXX_R8wfjIOpEjOYIxBtQPcsLGlFU5lSXELEg1XQDo-BQ&oe=68A71DBE&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/501963734_17884978812280089_4474518273052791893_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=oO4j3zfbXogQ7kNvwE4tVer&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfX2G8_dHCx5DGx1TURVp8ONzm6TfvfutNSUAec550h7WQ&oe=68A71FAD&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/502195972_17884862844280089_799385190441909876_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=U2Z2Fql4YT4Q7kNvwHZc6bR&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfU-oZS9jOvLc6qcFVN-MSKs1pXURoU31yEVZbq-Aa5WdA&oe=68A72EA0&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/500070317_17883851511280089_3305473610954443274_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=dUPxVbnb0AEQ7kNvwGXVD9x&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfXoT0AF2_mZyEKHxJhLWYGLoVESx4J9J_jIH_d2dEilCg&oe=68A72FA4&_nc_sid=bc0c2c',
-    'https://cors-anywhere.herokuapp.com/https://instagram.fsti9-1.fna.fbcdn.net/v/t51.2885-15/498509279_17883732132280089_441096236872327430_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fsti9-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QEQvtDT1_LUlAUT1CeFyFdYeg-605zR58BLxNJ-fKEoeZo41nw0P_rx8TaAfb39-XyowH5OP6fhK2ULx-h-yVjj&_nc_ohc=syj-pFoKausQ7kNvwECb1PD&_nc_gid=lTPpyfx16pDqIwupTeY_1w&edm=APU89FABAAAA&ccb=7-5&oh=00_AfXOGVdkxiKycyjMj_UzhWhvVXH0KsL5DNySrDS5JJnFeQ&oe=68A74567&_nc_sid=bc0c2c'
-];
 
 // ===== HEADER Y NAVEGACIÓN =====
 function initializeHeader() {
@@ -203,23 +174,84 @@ function createParticle(container) {
 
 // ===== EFECTO DE TYPING =====
 function initializeTypingEffect() {
-    const heroTitle = document.querySelector('.hero h1');
+    const heroTitle = document.querySelector('.hero-title');
     if (!heroTitle) return;
     
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
+    // El efecto de typing ya está manejado por CSS con animaciones
+    // Aquí solo agregamos efectos adicionales
+    const titleWords = heroTitle.querySelectorAll('.title-word');
     
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            heroTitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    };
+    titleWords.forEach((word, index) => {
+        word.addEventListener('animationend', function() {
+            // Agregar efecto de rebote después de la animación inicial
+            setTimeout(() => {
+                this.style.animation = 'bounce 1s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = 'titleAnimation 2s ease-out forwards, shimmer 3s ease-in-out infinite';
+                }, 1000);
+            }, 500);
+        });
+    });
+}
+
+// ===== ANIMACIONES ADICIONALES PARA HERO =====
+function initializeHeroAnimations() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
     
-    // Iniciar typing después de un delay
-    setTimeout(typeWriter, 500);
+    // Efecto de ondas en el fondo
+    createWaveEffect(hero);
+    
+    // Efecto de partículas brillantes
+    createBrightParticles(hero);
+    
+    // Efecto de texto con rebote
+    const titleWords = document.querySelectorAll('.title-word');
+    titleWords.forEach((word, index) => {
+        word.addEventListener('mouseenter', function() {
+            this.style.animation = 'rubberBand 1s ease-in-out';
+            setTimeout(() => {
+                this.style.animation = 'titleAnimation 2s ease-out forwards, shimmer 3s ease-in-out infinite';
+            }, 1000);
+        });
+    });
+}
+
+function createWaveEffect(container) {
+    const wave = document.createElement('div');
+    wave.style.cssText = `
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+        clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 50%);
+        animation: wave 3s ease-in-out infinite;
+        z-index: 2;
+    `;
+    
+    container.appendChild(wave);
+}
+
+function createBrightParticles(container) {
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 6 + 3}px;
+            height: ${Math.random() * 6 + 3}px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: brightFloat ${Math.random() * 8 + 5}s ease-in-out infinite;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            z-index: 3;
+        `;
+        
+        container.appendChild(particle);
+    }
 }
 
 // ===== CONTADOR DE ESTADÍSTICAS =====
@@ -266,53 +298,12 @@ function initializeCatalogModal() {
     const viewMoreBtn = document.getElementById('viewMoreBtn');
     const catalogModal = document.getElementById('catalogModal');
     const closeModal = document.getElementById('closeModal');
-    const testLoadBtn = document.getElementById('testLoadBtn');
     
     if (viewMoreBtn && catalogModal) {
         viewMoreBtn.addEventListener('click', function() {
             catalogModal.classList.add('active');
             document.body.style.overflow = 'hidden';
             createFireworks();
-            
-            // Cargar las imágenes de Instagram cuando se abra el modal
-            setTimeout(() => {
-                loadInstagramCatalog();
-            }, 300);
-        });
-    }
-    
-    // Botón de prueba para cargar imágenes manualmente
-    if (testLoadBtn) {
-        testLoadBtn.addEventListener('click', function() {
-            console.log('🔄 Botón de prueba clickeado');
-            loadInstagramCatalog();
-        });
-    }
-    
-    // Botón de prueba para verificar carga de imágenes
-    const testImageBtn = document.getElementById('testImageBtn');
-    if (testImageBtn) {
-        testImageBtn.addEventListener('click', function() {
-            console.log('🧪 Botón de prueba de imágenes clickeado');
-            testImageLoading();
-        });
-    }
-    
-    // Botón para probar proxy alternativo
-    const alternativeProxyBtn = document.getElementById('alternativeProxyBtn');
-    if (alternativeProxyBtn) {
-        alternativeProxyBtn.addEventListener('click', function() {
-            console.log('🌐 Botón de proxy alternativo clickeado');
-            loadInstagramCatalogAlternative();
-        });
-    }
-    
-    // Botón para probar todos los proxies
-    const testAllProxiesBtn = document.getElementById('testAllProxiesBtn');
-    if (testAllProxiesBtn) {
-        testAllProxiesBtn.addEventListener('click', function() {
-            console.log('🧪 Botón de probar todos los proxies clickeado');
-            testAllProxies();
         });
     }
     
@@ -339,222 +330,6 @@ function initializeCatalogModal() {
             catalogModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-    });
-}
-
-// ===== FUNCIÓN PARA CARGAR EL CATÁLOGO DE INSTAGRAM =====
-function loadInstagramCatalog() {
-    console.log('🚀 Función loadInstagramCatalog ejecutándose...');
-    console.log('📍 Timestamp:', new Date().toLocaleTimeString());
-    
-    // Esperar un poco más para asegurar que el modal esté completamente visible
-    setTimeout(() => {
-        const catalogGrid = document.getElementById('instagramCatalog');
-        console.log('📋 Elemento catalogGrid encontrado:', catalogGrid);
-        console.log('🖼️ Número de imágenes en el array:', instagramImages.length);
-        
-        if (catalogGrid && instagramImages.length > 0) {
-            // Mostrar contador de imágenes
-            console.log(`🎉 Cargando ${instagramImages.length} imágenes reales de FarluxRD`);
-            
-            // Generar HTML simple y directo
-            let htmlContent = '';
-            instagramImages.forEach((url, index) => {
-                htmlContent += `
-                    <div class="catalog-item" data-index="${index}">
-                        <img src="${url}" alt="Producto FarluxRD ${index + 1}" class="catalog-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="catalog-fallback" style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #2c5aa0, #4a90e2); border-radius: 10px; justify-content: center; align-items: center; color: white; font-weight: bold; text-align: center; padding: 1rem;">
-                            <div>
-                                <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
-                                <span>Producto ${index + 1}</span>
-                            </div>
-                        </div>
-                        <div class="catalog-overlay">
-                            <span>Producto ${index + 1}</span>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            // Insertar el HTML
-            catalogGrid.innerHTML = htmlContent;
-            
-            console.log('✅ HTML del catálogo generado correctamente');
-            console.log('🔍 Número de elementos creados:', catalogGrid.children.length);
-            
-            // Verificar que las imágenes se estén cargando
-            setTimeout(() => {
-                const images = catalogGrid.querySelectorAll('img');
-                console.log('🖼️ Imágenes encontradas en el DOM:', images.length);
-                
-                images.forEach((img, index) => {
-                    console.log(`📸 Imagen ${index + 1}:`, img.src);
-                    console.log(`📏 Dimensiones: ${img.naturalWidth}x${img.naturalHeight}`);
-                });
-            }, 500);
-            
-            // Añadir efectos de hover y animaciones
-            addCatalogEffects();
-            
-        } else {
-            console.log('❌ Error: catalogGrid o instagramImages no disponibles');
-            if (catalogGrid) {
-                catalogGrid.innerHTML = `
-                    <div class="no-images-message">
-                        <i class="fas fa-image"></i>
-                        <p>No hay imágenes disponibles</p>
-                        <small>Error: ${!catalogGrid ? 'catalogGrid no encontrado' : 'instagramImages vacío'}</small>
-                    </div>
-                `;
-            }
-        }
-    }, 200); // Aumentar el delay para asegurar que el modal esté listo
-}
-
-// ===== FUNCIÓN ALTERNATIVA CON PROXY DIFERENTE =====
-function loadInstagramCatalogAlternative() {
-    console.log('🔄 Cargando catálogo con proxy alternativo...');
-    
-    // Array con proxy alternativo más confiable
-    const alternativeImages = instagramImages.map(url => {
-        // Remover el proxy anterior y usar uno nuevo
-        const cleanUrl = url.replace('https://cors-anywhere.herokuapp.com/', '');
-        return `https://api.allorigins.win/raw?url=${encodeURIComponent(cleanUrl)}`;
-    });
-    
-    const catalogGrid = document.getElementById('instagramCatalog');
-    if (catalogGrid) {
-        let htmlContent = '';
-        alternativeImages.forEach((url, index) => {
-            htmlContent += `
-                <div class="catalog-item" data-index="${index}">
-                    <img src="${url}" alt="Producto FarluxRD ${index + 1}" class="catalog-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="catalog-fallback" style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #2c5aa0, #4a90e2); border-radius: 10px; justify-content: center; align-items: center; color: white; font-weight: bold; text-align: center; padding: 1rem;">
-                        <div>
-                            <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
-                            <span>Producto ${index + 1}</span>
-                        </div>
-                    </div>
-                    <div class="catalog-overlay">
-                        <span>Producto ${index + 1}</span>
-                    </div>
-                </div>
-            `;
-        });
-        
-        catalogGrid.innerHTML = htmlContent;
-        addCatalogEffects();
-    }
-}
-
-// ===== FUNCIÓN CON TERCER PROXY (MÁS CONFIABLE) =====
-function loadInstagramCatalogThird() {
-    console.log('🌍 Cargando catálogo con tercer proxy...');
-    
-    // Array con tercer proxy más confiable
-    const thirdImages = instagramImages.map(url => {
-        // Remover el proxy anterior y usar uno nuevo
-        const cleanUrl = url.replace('https://cors-anywhere.herokuapp.com/', '');
-        return `https://thingproxy.freeboard.io/fetch/${cleanUrl}`;
-    });
-    
-    const catalogGrid = document.getElementById('instagramCatalog');
-    if (catalogGrid) {
-        let htmlContent = '';
-        thirdImages.forEach((url, index) => {
-            htmlContent += `
-                <div class="catalog-item" data-index="${index}">
-                    <img src="${url}" alt="Producto FarluxRD ${index + 1}" class="catalog-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="catalog-fallback" style="display: none; width: 100%; height: 100%; background: linear-gradient(135deg, #2c5aa0, #4a90e2); border-radius: 10px; justify-content: center; align-items: center; color: white; font-weight: bold; text-align: center; padding: 1rem;">
-                        <div>
-                            <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
-                            <span>Producto ${index + 1}</span>
-                        </div>
-                    </div>
-                    <div class="catalog-overlay">
-                        <span>Producto ${index + 1}</span>
-                    </div>
-                </div>
-            `;
-        });
-        
-        catalogGrid.innerHTML = htmlContent;
-        addCatalogEffects();
-    }
-}
-
-// ===== FUNCIÓN PARA PROBAR TODOS LOS PROXIES =====
-function testAllProxies() {
-    console.log('🧪 Probando todos los proxies disponibles...');
-    
-    const catalogGrid = document.getElementById('instagramCatalog');
-    if (!catalogGrid) return;
-    
-    // Mostrar mensaje de prueba
-    catalogGrid.innerHTML = `
-        <div style="text-align: center; padding: 2rem; color: #2c5aa0;">
-            <h3>🧪 Probando Proxies CORS...</h3>
-            <p>Selecciona un proxy para probar:</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
-                <button onclick="loadInstagramCatalog()" style="padding: 0.5rem 1rem; background: #2c5aa0; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    🔄 Proxy 1 (CORS Anywhere)
-                </button>
-                <button onclick="loadInstagramCatalogAlternative()" style="padding: 0.5rem 1rem; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    🌐 Proxy 2 (AllOrigins)
-                </button>
-                <button onclick="loadInstagramCatalogThird()" style="padding: 0.5rem 1rem; background: #ff6b35; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    🌍 Proxy 3 (ThingProxy)
-                </button>
-            </div>
-        </div>
-    `;
-}
-
-// ===== FUNCIÓN DE PRUEBA PARA VERIFICAR IMÁGENES =====
-function testImageLoading() {
-    console.log('🧪 Función de prueba ejecutándose...');
-    console.log('📊 Array instagramImages:', instagramImages);
-    console.log('🔢 Longitud del array:', instagramImages.length);
-    
-    // Probar la primera imagen
-    if (instagramImages.length > 0) {
-        const testImg = new Image();
-        testImg.onload = function() {
-            console.log('✅ Primera imagen cargada correctamente:', this.src);
-            console.log('📏 Dimensiones:', this.naturalWidth, 'x', this.naturalHeight);
-        };
-        testImg.onerror = function() {
-            console.log('❌ Error al cargar la primera imagen:', this.src);
-        };
-        testImg.src = instagramImages[0];
-    }
-}
-
-// ===== FUNCIÓN PARA AÑADIR EFECTOS ESPECIALES AL CATÁLOGO =====
-function addCatalogEffects() {
-    const catalogItems = document.querySelectorAll('.catalog-item');
-    
-    catalogItems.forEach((item, index) => {
-        // Efecto de aparición escalonada
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            item.style.transition = 'all 0.6s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, index * 100);
-        
-        // Efecto de hover con información
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.05)';
-            this.querySelector('.catalog-overlay').style.opacity = '1';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.querySelector('.catalog-overlay').style.opacity = '0';
-        });
     });
 }
 
